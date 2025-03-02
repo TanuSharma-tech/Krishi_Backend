@@ -13,6 +13,13 @@ const nodemailer = require("nodemailer");
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(
+    cors({
+      origin: "https://frontend-krishi.vercel.app/",
+      methods: "GET,POST,PUT,DELETE",
+      allowedHeaders: "Content-Type,Authorization",
+    })
+  );
 // Connect to MongoDB
 connectDB();
 
